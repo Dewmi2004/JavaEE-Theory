@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Day-02-Application/Day-02-Application.iml" filepath="$PROJECT_DIR$/Day-02-Application/Day-02-Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day-02-Mapping-Specification/Day-02-Mapping-Specification.iml" filepath="$PROJECT_DIR$/Day-02-Mapping-Specification/Day-02-Mapping-Specification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaEE-Theory.iml" filepath="$PROJECT_DIR$/JavaEE-Theory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day-01/day-01.iml" filepath="$PROJECT_DIR$/day-01/day-01.iml" />
+    </modules>
+  </component>
+</project>

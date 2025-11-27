@@ -100,6 +100,7 @@ public class CustomerServlet extends HttpServlet {
             int rowInserted=preparedStatement.executeUpdate();
             if (rowInserted>0){
                 resp.getWriter().println("Customer saved successfully");
+
             }else {
                 resp.getWriter().println("Customer not saved");
             }

@@ -241,7 +241,9 @@
 <script src="jquery-3.7.1.min.js"></script>
 
 <script>
-
+    $(document).ready(function () {
+        loadCustomers();
+    });
     // ------------------- GET -------------------
     $('#get').click(function (e) {
         e.preventDefault();
@@ -276,7 +278,8 @@
             data: { id: id, name: name },
             success: function (response) {
                 console.log("POST:", response);
-                clear()
+                loadCustomers();
+                clear();
                 alert("Saved Successfully");
             },
             error: function () {
@@ -299,7 +302,8 @@
             data: { id: id, name: name },
             success: function (response) {
                 console.log("PUT:", response);
-                clear()
+                loadCustomers();
+                clear();
                 alert("Updated Successfully");
             },
             error: function () {
@@ -326,7 +330,8 @@
             data: { id: id },
             success: function (response) {
                 console.log("DELETE:", response);
-                clear(response)
+                loadCustomers();
+                clear();
                 alert("Deleted Successfully");
             },
             error: function () {
@@ -343,6 +348,22 @@
         $("#name").val(name);
     });
 
+    function loadCustomers() {
+
+        $.ajax({
+            url: "http://localhost:8080/Day_02_Application_war_exploded/customer",
+            method: "GET",
+            success: function (response) {
+                console.log("GET:", response);
+                $("#tblcustomer").html("");
+                $("#tblcustomer").append(response);
+                alert("Loaded Successfully");
+            },
+            error: function () {
+                console.log("GET Error");
+            }
+        });
+    }
 
 </script>
 

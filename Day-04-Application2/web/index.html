@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Form</title>
+<style>
+    /* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, lightseagreen 30%, whitesmoke 90%);
+        padding: 40px 20px;
+        min-height: 100vh;
+    }
+    h1 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        color: white;
+        font-size: 32px;
+    }
+
+    /* Form Container */
+    #customer-form {
+        background: linear-gradient(135deg, whitesmoke 50%, lightseagreen 50%);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        margin: 0 auto 30px;
+    }
+
+    #customer-form div {
+        display: block;
+    }
+
+    /* Labels */
+    label {
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    /* Input Fields */
+    input[type="text"] {
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        outline: none;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"]:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    input[type="text"]::placeholder {
+        color: #aaa;
+    }
+
+    /* Buttons */
+    button {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    button:last-of-type {
+        margin-right: 0;
+    }
+
+    #save {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    #save:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    #update {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+    }
+
+    #update:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    }
+
+    #get {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+    }
+
+    #get:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+    }
+
+    #delete {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        color: white;
+    }
+
+    #delete:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(250, 112, 154, 0.4);
+    }
+
+    button:active {
+        transform: translateY(0);
+    }
+
+    /* Table Styles */
+    table {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border-collapse: collapse;
+    }
+
+    thead {
+        background: linear-gradient(135deg, grey 0%,lightseagreen 100%);
+    }
+
+    thead th {
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+
+    tbody tr {
+        border-bottom: 1px solid #f0f0f0;
+        transition: background-color 0.3s ease;
+    }
+
+    tbody tr:hover {
+        background-color: #f8f9ff;
+    }
+
+    tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    tbody td {
+        padding: 15px;
+        color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        body {
+            padding: 20px 10px;
+        }
+
+        #customer-form {
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        table {
+            font-size: 14px;
+        }
+
+        thead th,
+        tbody td {
+            padding: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+<h1>Customer Managment </h1>
+<form id="customer-form">
+    <div>
+        <label for="id">Enter ID:</label>
+        <input type="text" id="id" placeholder="Enter ID">
+        <br><br>
+
+        <label for="name">Enter Name:</label>
+        <input type="text" id="name" placeholder="Enter Name">
+        <br><br>
+
+        <button id="save">Save</button>
+        <button id="update">Update</button>
+        <button id="get">Get</button>
+        <button id="delete">Delete</button>
+    </div>
+</form>
+
+<br><br>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>id</th><th>name</th>
+
+    </tr>
+    </thead>
+    <tbody id="tblcustomer">
+
+    </tbody>
+</table>
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        loadCustomers();
+    });
+    // ------------------- GET -------------------
+    $('#get').click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "http://localhost:8080/Day_04_Application2_Web_exploded/customer",
+            method: "GET",
+            success: function (response) {
+                console.log("GET:", response);
+                $("#tblcustomer").html("");
+                $("#tblcustomer").append(response);
+                alert("Loaded Successfully");
+            },
+            error: function () {
+                console.log("GET Error");
+            }
+        });
+    });
+
+
+
+    // ------------------- SAVE (POST) -------------------
+    $('#save').click(function (e) {
+        e.preventDefault();
+
+        let id = $("#id").val();
+        let name = $("#name").val();
+
+        $.ajax({
+            url: "http://localhost:8080/Day_04_Application2_Web_exploded/customer?id=" + id + "&name=" + name,
+            method: 'POST',
+            data: { id: id, name: name },
+            success: function (response) {
+                console.log("POST:", response);
+                loadCustomers();
+                clear();
+                alert("Saved Successfully");
+            },
+            error: function () {
+                console.log("POST Error");
+            }
+        });
+    });
+
+
+    // ------------------- UPDATE (PUT) -------------------
+    $('#update').click(function (e) {
+        e.preventDefault();
+
+        let id = $("#id").val();
+        let name = $("#name").val();
+
+        $.ajax({
+            url: "http://localhost:8080/Day_04_Application2_Web_exploded/customer?id=" + id + "&name=" + name,
+            method: "PUT",
+            data: { id: id, name: name },
+            success: function (response) {
+                console.log("PUT:", response);
+                loadCustomers();
+                clear();
+                alert("Updated Successfully");
+            },
+            error: function () {
+                console.log("PUT Error");
+            }
+        });
+    });
+
+    function clear() {
+        $("#id").val("");
+        $("#name").val("");
+    }
+
+
+    // ------------------- DELETE -------------------
+    $('#delete').click(function (e) {
+        e.preventDefault();
+
+        let id = $("#id").val();
+
+        $.ajax({
+            url: "http://localhost:8080/Day_04_Application2_Web_exploded/customer?id=" + id ,
+            method: "DELETE",
+            data: { id: id },
+            success: function (response) {
+                console.log("DELETE:", response);
+                loadCustomers();
+                clear();
+                alert("Deleted Successfully");
+            },
+            error: function () {
+                console.log("DELETE Error");
+            }
+        });
+    });
+    // Click on table row → load into inputs
+    $(document).on("click", "#tblcustomer tr", function () {
+        let id = $(this).find("td:eq(0)").text();
+        let name = $(this).find("td:eq(1)").text();
+
+        $("#id").val(id);
+        $("#name").val(name);
+    });
+
+    function loadCustomers() {
+
+        $.ajax({
+            url: "http://localhost:8080/Day_04_Application2_Web_exploded/customer",
+            method: "GET",
+            success: function (response) {
+                console.log("GET:", response);
+                $("#tblcustomer").html("");
+                $("#tblcustomer").append(response);
+                alert("Loaded Successfully");
+            },
+            error: function () {
+                console.log("GET Error");
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>

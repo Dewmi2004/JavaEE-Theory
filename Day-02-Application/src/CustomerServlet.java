@@ -149,7 +149,7 @@ public class CustomerServlet extends HttpServlet {
             int rowsUpdated = preparedStatement.executeUpdate();
 
             if (rowsUpdated > 0) {
-                out.println("Customer updated successfully");
+                 out.println("Customer updated successfully");
             } else {
                 out.println("Customer not found or not updated");
             }

@@ -30,6 +30,7 @@ public class SevletLifeCycle extends HttpServlet {
     public void init() throws ServletException {
         System.out.println("Inside init");
     }
+
     @Override
     public void destroy() {
         System.out.println("Inside destroy");

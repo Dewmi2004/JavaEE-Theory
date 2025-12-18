@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+</head>
+<body>
+<h1>Customer</h1>
+<div>
+    <button onclick="window.location.href='item.html'">ITEM</button>
+    <button onclick="window.location.href='order.html'">ORDER</button>
+    <button onclick="window.location.href='../index.html'">HOME</button>
+
+</div>
+<div>
+    <br>
+    <br>
+    <input type="text" id="customer_id" placeholder="Customer id">
+    <input type="text" id="customer_name" placeholder="Customer name">
+    <input type="text" id="customer_address" placeholder="Customer address">
+    <button onclick="saveCustomer()">SAVE</button>
+    <button onclick="updateCustomer()">UPDATE</button>
+    <button onclick="deleteCustomer()">DELETE</button>
+    <button onclick="getAllCustomer()">GET ALL CUSTOMER</button>
+</div>
+<script src="../assests/js/jquery-3.7.1.min.js"></script>
+<script>
+    function saveCustomer(){
+        $.ajax ({
+            "url": "http://localhost:8080/Day_05_POS_Backend_Web_exploded/api/v1/customer",
+            "method": "GET",
+            success : function (response){
+                console.log(response)
+            },
+            error:function (error) {
+                console.log(error)
+            }
+        });
+
+    }
+    function updateCustomer(){}
+    function deleteCustomer(){}
+    function getAllCustomer(){}
+</script>
+</body>
+</html>
